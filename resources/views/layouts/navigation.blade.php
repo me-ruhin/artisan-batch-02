@@ -11,11 +11,27 @@
                 </div>
 
                 <!-- Navigation Links -->
+                @can('view-admin-dashboard')
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                    <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
+                        {{ __('Admin') }}
                     </x-nav-link>
                 </div>
+                @endcan
+                @can('view-student-dashboard')
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('student.dashboard')" :active="request()->routeIs('student.dashboard')">
+                        {{ __('Student') }}
+                    </x-nav-link>
+                </div>
+                @endcan
+                @can('view-instructor-dashboard')
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('instructor.dashboard')" :active="request()->routeIs('instructor.dashboard')">
+                        {{ __('Instructor') }}
+                    </x-nav-link>
+                </div>
+                @endcan
             </div>
 
             <!-- Settings Dropdown -->
