@@ -24,4 +24,15 @@ class PostController extends Controller
         
         return $post;
     }
+
+
+    public function getUsers(){
+        try{
+            $users = User::get();
+            $this->seccessResponse("users list successfully fetched", 200, $users);
+
+        }catch(Exprection $e){
+            $this->errorResponse($e->geetMessage(), $e->getStatusCode());
+        }
+    }
 }
